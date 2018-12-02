@@ -1,0 +1,22 @@
+let wordlist = [
+    "analog",
+    "artisanal",
+    "beards",
+    "bronson",
+    "Chemex",
+    "chipper",
+    "clothesline",
+    "deck",
+    "film",
+    "fixie",
+    "gentrification",
+    "handmade",
+    "juicer",
+    "kale",
+    "organic",
+    "Pabst",
+    "Polaroid",
+    "pourover"
+    "vegan",
+    "vinyl"
+]; 

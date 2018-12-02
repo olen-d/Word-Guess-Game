@@ -1,0 +1,14 @@
+body       {
+    text-align: center;
+}
+
+.wrapper    {
+    width: 90%;
+    margin: 0px auto 0px auto;
+}
+
+.jumbotron  {
+    text-align: left;
+    background: #f6b60b;
+    padding-left: 2rem;
+}
