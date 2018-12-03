@@ -71,28 +71,41 @@ document.onkeyup = function(event) {
                 });
 
             } else {
-                guessLimit--;
-                updateGameStats("guesses-remaining",guessLimit);
-                //if guesses = 0, game over
+                guessesRemaining--;
+                updateGameStats("guesses-remaining",guessesRemaining);
+                
+                if (guessesRemaining === 0) {
+                    updateGameStats("game-result","Epic Fail!");
+                    anyKeyPressed = false;
+                }
             }
             
             
         // Check to see if the word is complete
         }
-        
+
     } else {
         anyKeyPressed = true;
         // Pick a word
         let wordIndex = Math.floor(Math.random() * wordList.length);
         word = wordList[wordIndex];alert(word);
+        wordList.splice(wordIndex, 1);
         let wordLength = word.length;
 
         // Make the blanks
+        blanks = "";    // Clear the blanks in case there was a previous game
         for (i = 1; i <= wordLength; i++)
             {
             blanks += "<span id=\"blank" + i + "\">_ </span>";
             }
         updateGameStats("blanks",blanks);
-        updateGameStats("guesses-remaining",guessLimit);
+
+        // Initialize or reset the guesses remaining
+        guessesRemaining = guessLimit;
+        updateGameStats("guesses-remaining",guessesRemaining);
+
+        // Clear the letters already guessed
+        lettersGuessed.length = 0;
+        updateGameStats("already-guessed","");
     }
 }
