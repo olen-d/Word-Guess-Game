@@ -47,6 +47,11 @@ function replaceBlank (blankPosition, letter) {
     blankToUpdate.textContent = letter;
 }
 
+function swapImage (oldImageId, newImageSrc) {
+    let imageToSwap = document.getElementById(oldImageId);
+    imageToSwap.src = newImageSrc;
+}
+
 // Start the game when the user presses any key
 
 document.onkeyup = function(event) {
@@ -78,9 +83,11 @@ document.onkeyup = function(event) {
                     indexes.forEach(function(element) {
                         replaceBlank("blank" + element,userInput + " ");
                     });
+
                     if(blanksRemaining === 0) {
                         // #winning
                         wins++;
+                        document.getElementById("game-result").style.color = "#718831";
                         updateGameStats("game-result","Good Job, You are a Winner!");
                         updateGameStats("win-total",wins);
                         anyKeyPressed = false;
@@ -91,7 +98,9 @@ document.onkeyup = function(event) {
                     updateGameStats("guesses-remaining",guessesRemaining);
                     
                     if (guessesRemaining === 0) {
+                        document.getElementById("game-result").style.color = "#c94716";
                         updateGameStats("game-result","Hangman is Over!");
+                        swapImage("game-image","assets/images/over.gif");
                         anyKeyPressed = false;
                     }
                 }
@@ -125,5 +134,8 @@ document.onkeyup = function(event) {
         // Clear the letters already guessed
         lettersGuessed.length = 0;
         updateGameStats("already-guessed","");
+
+        // Reset the image
+        swapImage("game-image","assets/images/hipster.jpg");
     }
 }

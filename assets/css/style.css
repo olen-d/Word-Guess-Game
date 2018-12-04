@@ -1,5 +1,6 @@
 body       {
     text-align: center;
+    color:#130f08;
 }
 
 .wrapper    {
@@ -11,4 +12,22 @@ body       {
     text-align: left;
     background: #f6b60b;
     padding-left: 3rem;
+}
+
+.jumbotron h1 {
+    font-family: 'Mr Bedfort', cursive;
+}
+
+.game-stats {
+    font-family: 'Voltaire', sans-serif;
+    font-size: 1.5rem;
+}
+
+#game-result {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #1d5259;
+    border: #518b74;
 }

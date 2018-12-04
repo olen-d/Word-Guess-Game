@@ -11,9 +11,9 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-     
-        <!-- Font Awesome for the icons -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+ 
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Mr+Bedfort|Voltaire" rel="stylesheet"> 
 
         <!-- Site Specific Styles -->
         <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
@@ -31,50 +31,55 @@
                     <p class = "lead">
                         Test your knowledge of hipster lingo.
                     </p>
-                    Press any key to get started!
+                    <button type="button" class="btn btn-primary btn-lg" id="initiate-game">Press any key to get started</button>
                 </div>
                 <div class = "row">
                     <div class = "col-md-1">
                         &nbsp;
                     </div>
                     <div class = "col-md-5">
-                        Graphics placeholder.
+                        <img src="assets/images/hipster.jpg" class="img-fluid rounded" id="game-image" width="100%" height="auto">
                     </div>
                     <div class = "col-md-5">
-                        <div class = row>
-                                <div class = "col-sm-6 text-right">
-                                    <p>
+                        <div class = "row">
+                                <div class = "col-sm-6 text-sm-center text-md-right">
+                                    <p class="game-stats">
                                         Wins:
                                     </p>
                                 </div>
-                                <div class = "col-sm-6 text-left">
-                                    <p id = "win-total">0</p>
+                                <div class = "col-sm-6 text-sm-center text-md-left">
+                                    <p id = "win-total" class="game-stats">0</p>
                                 </div>
                         </div>
-                        <div class = row>
+                        <div class = "row">
                             <div class = "col-sm-12">
-                                <p id = "blanks"></p>
+                                <p id = "blanks" class="game-stats"></p>
                             </div>
                         </div>
-                        <div class = row>
-                            <div class = "col-sm-6 text-right">
-                                <p>
+                        <div class = "row">
+                            <div class = "col-sm-6 text-sm-center text-md-right">
+                                <p class="game-stats">
                                     Guesses Remaining:
                                 </p>
                             </div>
-                            <div class = "col-sm-6 text-left">
-                                <p id = "guesses-remaining"></p>
+                            <div class = "col-sm-6 text-sm-center text-md-left ">
+                                <p id = "guesses-remaining" class="game-stats"></p>
                             </div>
                         </div>
-                        <div class = row>
-                                <div class = "col-sm-6 text-right">
-                                    <p>
+                        <div class = "row">
+                                <div class = "col-sm-6 text-sm-center text-md-right ">
+                                    <p class="game-stats">
                                         Letters Already Guessed:
                                     </p>
                                 </div>
-                                <div class = "col-sm-6 text-left">
-                                    <p id = "already-guessed"></p>
+                                <div class = "col-sm-6 text-sm-center text-md-left">
+                                    <p id = "already-guessed" class="game-stats"></p>
                                 </div>
+                        </div>
+                        <div class = "row">
+                            <div class = "col-sm-12">
+                                <p id = "game-result" class="game-stats"></p>
+                            </div>
                         </div>
                     </div>
                     <div class = "col-md-1">
@@ -87,7 +92,7 @@
                     &nbsp;
                 </div>
                 <div class = "col-md-5">
-                    <p id = "game-result"></p>
+                    
                 </div>
                 <div class = "col-md-5">
 
