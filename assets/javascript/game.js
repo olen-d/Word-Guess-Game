@@ -133,7 +133,7 @@ document.onkeyup = function(event) {
 
         // Pick a word, but first check to see if any are left
         if(wordList.length === 0) {
-            updateGameStats("game-result","Congratulations, You Have Used all the Words!")
+            updateGameStats("game-result","Congratulations, You Have Used all the Words!");
             }
 
         let wordIndex = Math.floor(Math.random() * wordList.length);
