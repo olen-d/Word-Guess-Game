@@ -6,6 +6,7 @@ let anyKeyPressed = false;
 let blanks = "";
 let pos = 0;
 let word = ""
+let wordLength = 0;
 let blanksRemaining = 0;
 
 // Set up the list of potential words. Note words can only be letters, numbers and special characters are not allowed.
@@ -24,6 +25,7 @@ let wordList = [
     "fixie",
     "gentrification",
     "handmade",
+    "jazz",
     "juicer",
     "kale",
     "ninjas",
@@ -47,6 +49,11 @@ function replaceBlank (blankPosition, letter) {
     blankToUpdate.textContent = letter;
 }
 
+function getBlankContent (blankPosition) {
+    let blankResult = document.getElementById(blankPosition).textContent;
+    return blankResult;
+}
+
 function swapImage (oldImageId, newImageSrc) {
     let imageToSwap = document.getElementById(oldImageId);
     imageToSwap.src = newImageSrc;
@@ -55,7 +62,7 @@ function swapImage (oldImageId, newImageSrc) {
 // Start the game when the user presses any key
 
 document.onkeyup = function(event) {
-    let userInput = event.key;
+    let userInput = event.key.toLowerCase();
     if (anyKeyPressed) {
 
         // Check to see if a letter is entered using regex
@@ -90,6 +97,7 @@ document.onkeyup = function(event) {
                         document.getElementById("game-result").style.color = "#718831";
                         updateGameStats("game-result","Good Job, You are a Winner!");
                         updateGameStats("win-total",wins);
+                        updateGameStats("initiate-game","Press any key to play again");
                         anyKeyPressed = false;
                         }
 
@@ -101,6 +109,20 @@ document.onkeyup = function(event) {
                         document.getElementById("game-result").style.color = "#c94716";
                         updateGameStats("game-result","Hangman is Over!");
                         swapImage("game-image","assets/images/over.gif");
+                        updateGameStats("initiate-game","Press any key to play again");
+
+                        // Reveal the answer - this wasn't part of the original brief, but was suggested during UX testing
+                        for (i = 0; i < wordLength; i++) {
+                            let j = i + 1;
+
+                            // check to see if the item is a blank
+                            blankContent = getBlankContent("blank" + j);
+                            blankContent = blankContent.charAt(0);
+                            if(blankContent === "_") {
+                                replaceBlank("blank" + j,word.charAt(i) + " ");
+                                document.getElementById("blank" + j).style.color = "#c94716";
+                            } 
+                        }
                         anyKeyPressed = false;
                     }
                 }
@@ -109,11 +131,15 @@ document.onkeyup = function(event) {
     } else {
         anyKeyPressed = true;
 
-        // Pick a word
+        // Pick a word, but first check to see if any are left
+        if(wordList.length === 0) {
+            updateGameStats("game-result","Congratulations, You Have Used all the Words!")
+            }
+
         let wordIndex = Math.floor(Math.random() * wordList.length);
         word = wordList[wordIndex];
         wordList.splice(wordIndex, 1);
-        let wordLength = word.length;
+        wordLength = word.length;
         blanksRemaining = wordLength;
 
         // Initialize or reset the game result
