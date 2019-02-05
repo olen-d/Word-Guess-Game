@@ -97,7 +97,7 @@ document.onkeyup = function(event) {
                         document.getElementById("game-result").style.color = "#718831";
                         updateGameStats("game-result","Good Job, You are a Winner!");
                         updateGameStats("win-total",wins);
-                        updateGameStats("initiate-game","Press any key to play again");
+                        updateGameStats("initiate-game","Press any key to play again.");
                         anyKeyPressed = false;
                         }
 
@@ -109,7 +109,7 @@ document.onkeyup = function(event) {
                         document.getElementById("game-result").style.color = "#c94716";
                         updateGameStats("game-result","Hangman is Over!");
                         swapImage("game-image","assets/images/over.gif");
-                        updateGameStats("initiate-game","Press any key to play again");
+                        updateGameStats("initiate-game","Press any key to play again.");
 
                         // Reveal the answer - this wasn't part of the original brief, but was suggested during UX testing
                         for (i = 0; i < wordLength; i++) {
